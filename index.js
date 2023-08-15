@@ -32,11 +32,6 @@ const giph = async () => {
     await browser.close();
 };
 
-console.log("Checking Environment Variables:");
-console.log("MY_EMAIL:", !!process.env.MY_EMAIL);
-console.log("MY_PASSWORD:", !!process.env.MY_PASSWORD);
-console.log("EMAIL_TO:", !!process.env.EMAIL_TO);
-
 const transporter = nodeMailer.createTransport({
     service: 'hotmail',
     auth: {
@@ -54,8 +49,8 @@ const gifLink = async () => {
 const getEmailContent = async () => {
     const gifSrc = await gifLink();
     return `
-      <h1>Hello!</h1>
-      <p>Check out this cool GIF:</p>
+      <h1>Buenos dias amor mio</h1>
+      <p>que tengas un lindo dia matojita mia.</p>
       <img src="${gifSrc}" alt="Cool GIF">
     `;
 };
