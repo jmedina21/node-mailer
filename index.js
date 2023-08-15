@@ -49,8 +49,8 @@ const gifLink = async () => {
 const getEmailContent = async () => {
     const gifSrc = await gifLink();
     return `
-      <h1>Buenos dias amor mio</h1>
-      <p>que tengas un lindo dia matojita mia.</p>
+      <h1>Good morning matojita mia</h1>
+      <h2>Que tengas un lindo dia.</h2>
       <img src="${gifSrc}" alt="Cool GIF">
     `;
 };
