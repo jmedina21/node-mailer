@@ -32,6 +32,11 @@ const giph = async () => {
     await browser.close();
 };
 
+console.log("Checking Environment Variables:");
+console.log("MY_EMAIL:", !!process.env.MY_EMAIL);
+console.log("MY_PASSWORD:", !!process.env.MY_PASSWORD);
+console.log("EMAIL_TO:", !!process.env.EMAIL_TO);
+
 const transporter = nodeMailer.createTransport({
     service: 'hotmail',
     auth: {
