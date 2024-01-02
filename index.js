@@ -7,7 +7,7 @@ let giphList = [];
 const giph = async () => {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
-    await page.goto('https://giphy.com/search/love');
+    await page.goto(`https://giphy.com/search/${process.env.SEARCH_TERM}}`);
     await page.waitForSelector('div.giphy-grid div:first-of-type a img.giphy-gif-img');
 
     const scrollDown = async () => {
@@ -33,7 +33,9 @@ const giph = async () => {
 };
 
 const transporter = nodeMailer.createTransport({
-    service: 'hotmail',
+    host: 'smtp.zoho.com',
+    secure: true,
+    port: 465,
     auth: {
         user: process.env.MY_EMAIL,
         pass: process.env.MY_PASSWORD,
@@ -49,8 +51,8 @@ const gifLink = async () => {
 const getEmailContent = async () => {
     const gifSrc = await gifLink();
     return `
-      <h1>Good morning matojita mia</h1>
-      <h2>Que tengas un lindo dia.</h2>
+      <h1>${process.env.MESSAGE_HEADING}</h1>
+      <h2>${process.env.MESSAGE_BODY}</h2>
       <img src="${gifSrc}" alt="Cool GIF">
     `;
 };
