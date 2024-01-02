@@ -5,7 +5,13 @@ const puppeteer = require('puppeteer');
 let giphList = [];
 
 const giph = async () => {
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+        executablePath: process.env.NODE_ENV === 'production'
+        ? process.env.PUPPETEER_EXECUTABLE_PATH
+        : puppeteer.executablePath(),
+        headless: 'new',
+        args: ['--no-sandbox', '--disable-setuid-sandbox']
+      });
     const page = await browser.newPage();
     await page.goto(`https://giphy.com/search/${process.env.SEARCH_TERM}}`);
     await page.waitForSelector('div.giphy-grid div:first-of-type a img.giphy-gif-img');
