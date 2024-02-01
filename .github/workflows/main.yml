@@ -26,4 +26,7 @@ jobs:
         MY_EMAIL: ${{ secrets.MY_EMAIL }}
         MY_PASSWORD: ${{ secrets.MY_PASSWORD }}
         EMAIL_TO: ${{ secrets.EMAIL_TO }}
+        MESSAGE_HEADING: ${{ secrets.MESSAGE_HEADING }}
+        MESSAGE_BODY: ${{ secrets.MESSAGE_BODY }}
+        SEARCH_TERM: ${{ secrets.SEARCH_TERM }}
 
