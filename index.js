@@ -39,9 +39,7 @@ const giph = async () => {
 };
 
 const transporter = nodeMailer.createTransport({
-    host: 'smtp.zoho.com',
-    secure: true,
-    port: 465,
+    host: 'hotmail',
     auth: {
         user: process.env.MY_EMAIL,
         pass: process.env.MY_PASSWORD,
