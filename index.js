@@ -39,7 +39,7 @@ const giph = async () => {
 };
 
 const transporter = nodeMailer.createTransport({
-    host: 'hotmail',
+    service: 'hotmail',
     auth: {
         user: process.env.MY_EMAIL,
         pass: process.env.MY_PASSWORD,
